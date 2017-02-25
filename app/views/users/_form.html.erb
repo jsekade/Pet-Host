@@ -1,0 +1,47 @@
+<%= form_for(user) do |f| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Nombre %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Apellidos %>
+    <%= f.text_field :surname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Teléfono %>
+    <%= f.text_field :telephone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Calle %>
+    <%= f.text_field :street %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Ciudad %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Codigo_postal %>
+    <%= f.number_field :postal_code %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Crear usuario'%>
+  </div>
+<% end %>

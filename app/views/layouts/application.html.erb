@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pethost</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <header>
+     <% if user_signed_in? %>
+      <h2>Bienvenido <%= current_user.username %></h2>
+      <%= link_to 'Salir', destroy_user_session_path, method: 'DELETE' %>
+    <% else %>
+      <h2> No estas registrado </h2>
+      <%= link_to 'Entrar', new_user_session_path %>
+      <%= link_to 'Registrarse', new_user_registration_path %>
+    <% end %>
+  </header>
+ 
+    <%= yield %>
+  </body>
+</html>

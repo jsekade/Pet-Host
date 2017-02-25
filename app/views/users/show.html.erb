@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Apellidos:</strong>
+  <%= @user.surname %>
+</p>
+
+<p>
+  <strong>Teléfono:</strong>
+  <%= @user.telephone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Calle:</strong>
+  <%= @user.street %>
+</p>
+
+<p>
+  <strong>Ciudad:</strong>
+  <%= @user.city %>
+</p>
+
+<p>
+  <strong>Código postal:</strong>
+  <%= @user.postal_code %>
+</p>
+<%= link_to 'Añadir mascota', new_user_pet_path(@user)%> |
+
+<%= link_to 'Editar', edit_user_path(@user) %> |
+<%= link_to 'Atrás', users_path %>
