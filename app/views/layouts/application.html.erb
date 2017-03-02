@@ -5,27 +5,13 @@
     <%= csrf_meta_tags %>   
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body>
   <header>
-  <div class="page-header">
-  
-
-     <% if user_signed_in? %>
-      <p>Bienvenido <%= current_user.username %></p>
-      <%= link_to 'Ver usuario', user_path(current_user) %> |
-      <%= link_to 'Salir', destroy_user_session_path, method: 'DELETE' %>
-    <% else %>
-      <p> No estas registrado </p>
-     
-      <%= link_to 'Entrar', new_user_session_path %>
-      <%= link_to 'Registrarse', new_user_registration_path %>
-    <% end %>
-    </div>
+    <%= render '/layouts/nav' %>
   </header>
- 
+
     <%= yield %>
   </body>
 </html>
