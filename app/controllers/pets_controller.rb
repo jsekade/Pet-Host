@@ -21,6 +21,7 @@ class PetsController < ApplicationController
 
   # GET /pets/1/edit
   def edit
+    @user = User.find_by(id: params[:user_id])
   end
 
   # POST /pets

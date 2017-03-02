@@ -12,6 +12,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    
+  end
+
+  def showhost
+    set_user
   end
 
   # GET /users/new
@@ -21,6 +26,10 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+  end
+
+  def edithost
+    set_user
   end
 
   # POST /users
@@ -53,6 +62,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def update_host
+
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { render :showhost, status: :ok, location: @user }
+      else
+        format.html { render :edithost }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
@@ -71,7 +93,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :surname, :telephone, :email, :street, :city, :postal_code)
+      params.require(:user).permit(:name, :surname, :telephone, :email, :street, :city, :postal_code, :housing_type, :housing_description, :welcome_pets, :price, :availability)
     end
 
 end

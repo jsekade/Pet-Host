@@ -1,23 +1,29 @@
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nombre:</strong>
-  <%= @user.name %>
+  <strong>Tipo de casa:</strong>
+  <%= @user.housing_type %>
 </p>
 
 <p>
-  <strong>Apellidos:</strong>
-  <%= @user.surname %>
+  <strong>Descripcion:</strong>
+  <%= @user.housing_description %>
 </p>
 
 <p>
-  <strong>Teléfono:</strong>
-  <%= @user.telephone %>
+  <strong>Mascotas aceptadas:</strong>
+  <%= @user.welcome_pets %>
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
+  <strong>Precio:</strong>
+  <%= @user.price %>
+</p>
+
+<p>
+  <strong>Disponibilidad:</strong>
+  <%= @user.availability %>
 </p>
 
 <p>
@@ -37,8 +43,6 @@
 
 <%= link_to 'Ver mascotas', user_pets_path(@user)%> |
 <%= link_to 'Añadir mascota', new_user_pet_path(@user)%> |
-<%= link_to 'Ser anfitrion', edit_user_host_path(@user) %> |
-
+ 
 <%= link_to 'Editar', edit_user_path(@user) %> |
 <%= link_to 'Atrás', user_session_path %>
-

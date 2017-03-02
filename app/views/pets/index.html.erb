@@ -16,7 +16,7 @@
   </thead>
 
   <tbody>
-    <% @pets.each do |pet| %>
+    <%- @pets.each do |pet| %>
       <tr>
         <td><%= pet.name %></td>
         <td><%= pet.type_pet %></td>
@@ -26,7 +26,7 @@
         <td><%= pet.care %></td>
         <td><%= link_to 'Show', user_pets_path %></td>
         <td><%= link_to 'Edit', edit_user_pet_path(@user, pet) %></td>
-        <td><%= link_to 'Destroy', user_pet_path(@user, pet, method: :delete, data: { confirm: '¿Estas seguro?' } %></td>
+        <td><%= link_to 'Destroy', user_pet_path(@user, pet, method: :delete, data: { confirm: '¿Estas seguro?' }) %></td>
       </tr>
     <% end %>
   </tbody>
