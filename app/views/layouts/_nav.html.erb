@@ -1,12 +1,26 @@
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
-        <% if user_signed_in? %>
-          <p>Bienvenido <%= current_user.username %></p>
-          <%= link_to 'Ver usuario', user_path(current_user) %> |
-          <%= link_to 'Salir', destroy_user_session_path, method: 'DELETE' %>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Pet Host</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+          <li><%= link_to current_user.username, user_path(current_user)%></li>
+          <li><%= link_to 'Ver usuario', user_path(current_user) %></li>
+          <li><%= link_to 'Salir', destroy_user_session_path, method: 'DELETE' %></li>
         <% else %>
-          <%= link_to 'Entrar', new_user_session_path, class: "btn btn-default navbar-btn" %>
-          <%= link_to 'Registrarse', new_user_registration_path, class: "btn btn-default navbar-btn" %>
+          <li><%= link_to 'Entrar', new_user_session_path %></li>
+          <li><%= link_to 'Registrarse', new_user_registration_path %></li>
         <% end %>
+          </ul>
+      </div><!--/.nav-collapse -->
       </div>
     </nav>
+    
