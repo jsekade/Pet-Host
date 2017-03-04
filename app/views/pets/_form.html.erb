@@ -18,8 +18,14 @@
 
   <div class="field">
     <%= f.label :type_pet %>
-    <%= f.text_field :type_pet %>
+    <%= f.select(:type_pet) do %>
+     <% [['perro', 'perro'], ['gato', 'gato'], ['pajaro', 'pajaro']].each do |c| -%>
+    <%= content_tag(:option, c.first, value: c.last) %>
+    <% end %>
+    <% end %>
   </div>
+
+  
 
   <div class="field">
     <%= f.label :breed %>

@@ -12,10 +12,14 @@
   <% end %>
 
   <div class="field">
-
     <%= f.label :housing_type %>
-    <%= f.text_field :housing_type %>
+    <%= f.select(:housing_type) do %>
+     <% [['piso', 'piso'], ['apartamento', 'apartamento'], ['chalet adosado', 'chalet adosado'], ['chalet independiente', 'chalet independiente']].each do |c| -%>
+    <%= content_tag(:option, c.first, value: c.last) %>
+    <% end %>
+    <% end %>
   </div>
+
 
   <div class="field">
     <%= f.label :housing_description %>
