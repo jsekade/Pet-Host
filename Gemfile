@@ -39,6 +39,9 @@ gem 'bootswatch-rails'
 gem 'bootstrap-sass'
 
 gem 'paperclip'
+
+gem "ransack"
+
 gem 'pry'
 
 
