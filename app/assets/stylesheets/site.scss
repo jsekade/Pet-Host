@@ -1,3 +1,23 @@
 // Place all the styles related to the site controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.imghome {
+	
+	background-image:url('/perrocaseta.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #464646;
+
+
+	width: 100%;
+	height: 1000px;
+	
+
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}

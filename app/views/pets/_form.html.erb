@@ -1,4 +1,6 @@
-<%= form_for [@user, @pet] do |f| %>
+<div class="panel panel-default">
+<div class="panel-body">
+<%= form_for [@user, @pet], html: { class: 'form-horizontal' } do |f| %>
   <% if pet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
@@ -11,43 +13,62 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <fieldset>
+    <legend>+ Mascota</legend>
+
+  <div class="form-group">
+    <%= f.label :name, class: "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+    <%= f.text_field :name, class: "form-control", placeholder: "nombre"%>
+    </div>
   </div>  
 
-  <div class="field">
-    <%= f.label :type_pet %>
-    <%= f.select(:type_pet) do %>
+  <div class="form-group">
+    <%= f.label :type_pet, class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+    <%= f.select(:type_pet, html: { class: 'form-control' }) do %>
      <% [['perro', 'perro'], ['gato', 'gato'], ['pajaro', 'pajaro']].each do |c| -%>
     <%= content_tag(:option, c.first, value: c.last) %>
     <% end %>
     <% end %>
+    </div>
   </div>
 
-  
-
-  <div class="field">
-    <%= f.label :breed %>
-    <%= f.text_field :breed %>
+  <div class="form-group">
+    <%= f.label :breed, class: "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+    <%= f.text_field :breed, class: "form-control", placeholder: "raza" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :age %>
-    <%= f.number_field :age %>
+  <div class="form-group">
+    <%= f.label :age, class: "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+    <%= f.number_field :age, class: "form-control", placeholder: "edad" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :description_pet %>
-    <%= f.text_area :description_pet %>
+  <div class="form-group">
+    <%= f.label :description_pet, class: "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+    <%= f.text_area :description_pet, class: "form-control", rows: "3" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :care %>
-    <%= f.text_area :care %>
+  <div class="form-group">
+    <%= f.label :care, class: "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+    <%= f.text_area :care, class: "form-control", placeholder: "cuidados" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <%= f.submit 'Cancel', :name => 'cancel', class: "btn btn-default"%>
+        <%= f.submit 'Submit', class: "btn btn-primary"%>
+      </div>
   </div>
+  </fieldset>
 <% end %>
+</div>
+</div>

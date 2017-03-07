@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag    'signin', media: 'all' %>
 <div class="container">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-signin' }) do |f| %>
   <h2 class="form-signin-heading">Please sign in</h2>
@@ -17,12 +18,12 @@
   </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="checkbox">
-      <label>
-      <%= f.label :remember_me %>
-      </label>
-      <%= f.check_box :remember_me %>
-    </div>
+
+      <div>
+      <%= f.check_box :remember_me, class: "checkbox" %> 
+      <%= f.label :remember_me, class: "checkbox" %>
+      </div>
+    
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <%= render "devise/shared/links" %>
   <% end -%> 

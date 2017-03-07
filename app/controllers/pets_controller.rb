@@ -4,7 +4,7 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-    @user = User.find_by(id: params[:user_id])
+    set_user
     @pets = @user.pets.all
   end
 
@@ -15,21 +15,19 @@ class PetsController < ApplicationController
 
   # GET /pets/new
   def new
-    @user = User.find_by(id: params[:user_id])
+    set_user
     @pet = Pet.new
   end
 
   # GET /pets/1/edit
   def edit
-    @user = User.find_by(id: params[:user_id])
+    set_user
   end
 
   # POST /pets
   # POST /pets.json
   def create
-
-
-
+    set_user
     @pet = Pet.new(
       :name => params[:pet][:name],
       :type_pet => params[:pet][:type_pet],
@@ -39,10 +37,9 @@ class PetsController < ApplicationController
       :care => params[:pet][:care],
       :user_id => params[:user_id]
       )
-
-    @pet.save
     
-    redirect_to user_pet_path(@pet.user, @pet)
+    redirect_to user_path(@user)
+    #redirect_to user_pet_path(@pet.user, @pet)
    
 
     #respond_to do |format|
@@ -99,6 +96,10 @@ class PetsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_pet
       @pet = Pet.find(params[:id])
+    end
+
+    def set_user
+      @user = User.find_by(id: params[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

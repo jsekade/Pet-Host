@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   
@@ -26,6 +27,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    set_user
   end
 
   def edithost
@@ -51,7 +53,10 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    set_user
+    
     respond_to do |format|
+
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
@@ -93,7 +98,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :surname, :telephone, :email, :street, :city, :postal_code, :housing_type, :housing_description, :welcome_pets, :price, :availability)
+      params.require(:user).permit(:name, :surname, :telephone, :email, :street, :city, :postal_code, :avatar, :housing_type, :housing_description, :welcome_pets, :price, :availability)
     end
 
 end

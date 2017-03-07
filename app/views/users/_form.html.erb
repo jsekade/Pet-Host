@@ -1,10 +1,8 @@
 
 <div class="panel panel-default">
 <div class="panel-body">
-    
-<form class="form-horizontal">
 
-<%= form_for(user) do |f| %>
+<%= form_for @user,  html: { class: 'form-horizontal' } do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -55,16 +53,24 @@
     <%= f.text_field :postal_code, class: "form-control", placeholder: "postal code"%>
     </div>
   </div>
+  <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      <%= f.file_field :avatar %>
+    </div>
+  </div>
   
   <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
         <%= f.submit 'Cancel', :name => 'cancel', class: "btn btn-default"%>
         <%= f.submit 'Submit', class: "btn btn-primary"%>
       </div>
-    </div>
+  </div>
+
   </fieldset>
+
 <% end %>
-</form>
+
 </div>
 </div>
+
 
