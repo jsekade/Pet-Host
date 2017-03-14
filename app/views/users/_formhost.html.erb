@@ -26,9 +26,15 @@
     <%= f.text_area :housing_description %>
   </div>
 
-  <div class="field">
-    <%= f.label :welcome_pets %>
-    <%= f.text_field :welcome_pets %>
+   <div class="form-group">
+    <%= f.label :welcome_pets, class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+    <%= f.select(:welcome_pets, html: { class: 'form-control' }) do %>
+     <% [['perro', 'perro'], ['gato', 'gato'], ['pajaro', 'pajaro']].each do |c| -%>
+    <%= content_tag(:option, c.first, value: c.last) %>
+    <% end %>
+    <% end %>
+    </div>
   </div>
 
   <div class="field">

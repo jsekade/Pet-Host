@@ -1,0 +1,28 @@
+
+<div class="container media .col-md-9">
+
+    <% @users.each do |user| %>
+      <div class="media">
+        <div class="media-left media-middle">
+          <%= image_tag user.avatar.url(:thumb), class: "media-object" %>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"><%= user.username%></h4>      
+            <strong>Alojamiento:</strong>
+            <%= user.housing_type%>
+            <strong>Acepta:</strong>
+            <%= user.welcome_pets %>                 
+        </div>
+        <span class="pull-right buttons">
+          <%= link_to 'Ver usuario', user, class: "btn btn-sm btn-primary" %>
+        </span>
+      </div>              
+    <% end %>
+</div>
+<div class="container media .col-md-3">
+sdvdvsdvsd
+</div>
+
+
+
+
