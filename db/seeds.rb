@@ -10,3 +10,8 @@ carpanta, lopez, mortadelo = User.create!([
 carpanta.pets.create!([{name: 'Boby', type_pet: 'Perro', breed: 'Bullterrier', age: '5', description_pet: 'dsdvsdvsdvsdvsdv', care: 'sdbvsdbsd'}])
 lopez.pets.create!([{name: 'Piolo', type_pet: 'Ave', breed: 'Canario', age: '6', description_pet: 'sdvsdvsdv', care: 'dvwsrhbfdb'}])
 mortadelo.pets.create!([{name: 'Filemon', type_pet: 'Gato', breed: 'Super', age: '12', description_pet: 'sdvsdvsdd', care: 'sdsdbvsdbs'}])
+
+Message.create({:body => "Prueba  1 2 3", :sender_id => 7, :receiver_id => 8 })
+Message.create({:body => "Prueba 4 5 6", :sender_id => 8, :receiver_id => 7 })
+Message.create({:body => "Prueba 7 8 9", :sender_id => 7, :receiver_id => 8 })
+Message.create({:body => "Prueba 10 11 12", :sender_id => 8, :receiver_id => 7 })

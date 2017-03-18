@@ -24,7 +24,7 @@
         <td><%= pet.age %></td>
         <td><%= pet.description_pet %></td>
         <td><%= pet.care %></td>
-        <td><%= link_to 'Show', user_pets_path %></td>
+        <td><%= link_to 'Show', user_pet_path(@user,pet) %></td>
         <td><%= link_to 'Edit', edit_user_pet_path(@user, pet) %></td>
         <td><%= link_to 'Destroy', user_pet_path(@user, pet, method: :delete, data: { confirm: '¿Estas seguro?' }) %></td>
       </tr>

@@ -60,6 +60,8 @@
         <% if @user.housing_type %>
           <%= link_to 'Ver alojamiento', user_host_path(current_user) %> |
         <% end %>
+          <%= link_to 'Ver mensajes', messages_user_path(current_user)%> |
+        
 
         <%= link_to 'Editar', edit_user_path(@user) %> |
         <%= link_to 'Atrás', user_session_path %>
@@ -117,12 +119,14 @@
             <strong>Disponibilidad:</strong>
             <%= @user.availability %>
           </p>
-
+          
+            <%= link_to 'Enviar mensaje', new_messager_for_user_path(@user)%> | 
 
 
         </div>
         </div>
       <% end %>
+      
 
     </div>
   </div>

@@ -11,6 +11,7 @@ class PetsController < ApplicationController
   # GET /pets/1
   # GET /pets/1.json
   def show
+    set_user
   end
 
   # GET /pets/new
