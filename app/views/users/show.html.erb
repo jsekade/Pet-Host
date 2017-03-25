@@ -1,133 +1,14 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div class="panel panel-default">
-    <div class="panel-body">
+    <div class="panel-body"> -->
       
       <% if current_user == @user %>
-
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag @user.avatar.url(:medium) %>
-          </div>
-        <div class="media-body">
-          <h4 class="media-heading"><%= @user.username %></h4>
-          <p id="notice"><%= notice %></p>
-          
-          <p>
-            <strong>Nombre:</strong>
-            <%= @user.name %>
-          </p>
-
-          <p>
-            <strong>Apellidos:</strong>
-            <%= @user.surname %>
-          </p>
-
-          <p>
-            <strong>Teléfono:</strong>
-            <%= @user.telephone %>
-          </p>
-
-          <p>
-            <strong>Email:</strong>
-            <%= @user.email %>
-          </p>
-
-          <p>
-            <strong>Calle:</strong>
-            <%= @user.street %>
-          </p>
-
-          <p>
-              <strong>Ciudad:</strong>
-          <%= @user.city %>
-          </p>
-
-          <p>
-            <strong>Código postal:</strong>
-            <%= @user.postal_code %>
-          </p>
-        </div>
-        </div>
-
-        <%= link_to 'Añadir mascota', new_user_pet_path(@user)%> |
-
-        <% if @user.pets.size>0%>
-          <%= link_to 'Ver mascotas', user_pets_path(@user)%> |
-        <% end %>
-
-        <%= link_to 'Ser anfitrion', edit_user_host_path(@user) %> |
-
-        <% if @user.housing_type %>
-          <%= link_to 'Ver alojamiento', user_host_path(current_user) %> |
-        <% end %>
-          <%= link_to 'Ver mensajes', messages_user_path(current_user)%> |
-        
-
-        <%= link_to 'Editar', edit_user_path(@user) %> |
-        <%= link_to 'Atrás', user_session_path %>
-
+        <%= render 'show_logged_in', user: @user %>
       <% else %>
-
-        <div class="media">
-          <div class="media-left">
-            <%= image_tag @user.avatar.url(:medium) %>
-          </div>
-        <div class="media-body">
-          <h4 class="media-heading"><%= @user.username%></h4>
-
-          <p>
-            <strong>Nombre:</strong>
-            <%= @user.name %>
-          </p>
-
-          <p>
-            <strong>Teléfono:</strong>
-            <%= @user.telephone %>
-          </p>
-
-          <p>
-            <strong>Email:</strong>
-            <%= @user.email %>
-          </p>
-
-          <p>
-            <strong>Ciudad:</strong>
-            <%= @user.city %>
-          </p>
-
-          <p>
-            <strong>Alojamiento:</strong>
-            <%= @user.housing_type %>
-          </p>
-
-          <p>
-            <strong>Descripción:</strong>
-            <%= @user.housing_description %>
-          </p>
-
-          <p>
-            <strong>Mascotas bienvenidas:</strong>
-            <%= @user.welcome_pets %>
-          </p>
-
-          <p>
-            <strong>Precio:</strong>
-            <%= @user.price %>
-          </p>
-
-          <p>
-            <strong>Disponibilidad:</strong>
-            <%= @user.availability %>
-          </p>
-          
-            <%= link_to 'Enviar mensaje', new_messager_for_user_path(@user)%> | 
-
-
-        </div>
-        </div>
+        <%= render 'show_logged_out', user: @user %>    
       <% end %>
       
-
-    </div>
+ <!--    </div>
   </div>
 </div>
+ -->

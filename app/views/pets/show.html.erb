@@ -29,6 +29,7 @@
   <strong>Care:</strong>
   <%= @pet.care %>
 </p>
+<%= image_tag @pet.avatar.url(:thumb) %>
   
 <%= link_to 'Edit', edit_user_pet_path(@pet) %> |
 <%= link_to 'Back', user_pets_path %>

@@ -36,7 +36,9 @@ class PetsController < ApplicationController
       :age => params[:pet][:age],
       :description_pet => params[:pet][:description_pet],
       :care => params[:pet][:care],
+      :avatar => params[:pet][:avatar],
       :user_id => params[:user_id]
+
       )
     
     redirect_to user_path(@user)
@@ -64,6 +66,7 @@ class PetsController < ApplicationController
       :age => params[:pet][:age],
       :description_pet => params[:pet][:description_pet],
       :care => params[:pet][:care],
+      :avatar => params[:pet][:avatar],
       :user_id => params[:user_id]
       )
 

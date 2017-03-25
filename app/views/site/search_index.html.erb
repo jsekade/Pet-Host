@@ -1,26 +1,36 @@
+<%= stylesheet_link_tag    'site', media: 'all' %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 ">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12145.933587385933!2d-3.73335475!3d40.44243675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1490125778318" width="450" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <div class="col-md-7">
 
-<div class="container media .col-md-9">
-
-    <% @users.each do |user| %>
-      <div class="media">
-        <div class="media-left media-middle">
-          <%= image_tag user.avatar.url(:thumb), class: "media-object" %>
-        </div>
-        <div class="media-body">
-          <h4 class="media-heading"><%= user.username%></h4>      
-            <strong>Alojamiento:</strong>
-            <%= user.housing_type%>
-            <strong>Acepta:</strong>
-            <%= user.welcome_pets %>                 
-        </div>
-        <span class="pull-right buttons">
-          <%= link_to 'Ver usuario', user, class: "btn btn-sm btn-primary" %>
-        </span>
-      </div>              
-    <% end %>
-</div>
-<div class="container media .col-md-3">
-sdvdvsdvsd
+      <% @users.each do |user| %>
+        <div class="media">
+          <div class="media-left media-middle">
+            <%= image_tag user.avatar.url(:thumb), class: "media-object" %>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading"><%= user.username%></h4>      
+              <div class="media-row">
+                <strong>Alojamiento:</strong>
+                <%= user.housing_type%>
+              </div>
+              <div class="media-row">
+                <strong>Acepta:</strong>
+                <%= user.welcome_pets %>
+              </div>   
+              <span class="pull-right buttons">
+              <%= link_to 'Ver usuario', user, class: "btn btn-sm btn-primary" %>
+          </span>              
+          </div>
+          
+        </div>              
+      <% end %>
+    </div>
+    
+  </div>
 </div>
 
 

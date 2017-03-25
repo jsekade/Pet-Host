@@ -1,0 +1,59 @@
+<div class="container" >
+  <h1 class="page-header"><%= @user.username %></h1>
+  <div class="row">
+  <!-- left column -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="text-center">
+            <%= image_tag @user.avatar.url, class: "avatar img-circle img-thumbnail", style: "max-width: 60%;"%>
+          </div>
+        </div>
+  <!-- info column -->
+      <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+        <h3>Personal info</h3>
+      <div class="col-lg-8">
+        <p>
+            <strong>Nombre:</strong>
+            <%= @user.name %>
+          </p>
+
+          <p>
+            <strong>Teléfono:</strong>
+            <%= @user.telephone %>
+          </p>
+
+          <p>
+            <strong>Ciudad:</strong>
+            <%= @user.city %>
+          </p>
+
+          <p>
+            <strong>Alojamiento:</strong>
+            <%= @user.housing_type %>
+          </p>
+
+          <p>
+            <strong>Descripción:</strong>
+            <%= @user.housing_description %>
+          </p>
+
+          <p>
+            <strong>Mascotas bienvenidas:</strong>
+            <%= @user.welcome_pets %>
+          </p>
+
+          <p>
+            <strong>Precio:</strong>
+            <%= @user.price %>
+          </p>
+
+          <p>
+            <strong>Disponibilidad:</strong>
+            <%= @user.availability %>
+          </p>
+          
+            <%= link_to 'Enviar mensaje', new_messager_for_user_path(@user)%> | 
+
+
+      </div>
+  </div>
+</div>
