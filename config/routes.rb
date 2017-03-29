@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   
   get '/users/:id/messages', to:  'messages#index', as: :messages_user
   post '/users/:id/messages', to: 'messages#create'
+  get '/users/:id/messages/:id', to: 'messages#show', as: :message_user
   get '/messages/new/:id', to: 'messages#new', as: :new_messager_for_user
+  post'/users/:id/messages', to: 'messages#create'
+  
+
   get '/', to: 'site#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,22 +1,30 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :set_message, only: [:edit, :update, :destroy]
 
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.where("receiver_id = #{current_user.id} OR sender_id = #{current_user.id}")
-    #m1 = Message.where(sender_id: current_user.id, receiver_id: User.find_by(id: params[:id]))#.order(created_at: :desc)
-    #m2 = Message.where(sender_id: User.find_by(id: params[:id]), receiver_id: current_user.id)#.order(created_at: :desc)
-    
+    @users = current_user.sent_messages.distinct.map(&:receiver)
+    @users += current_user.received_messages.distinct.map(&:sender)
+    @users = @users.uniq
   end
 
   # GET /messages/1
   # GET /messages/1.json
   def show
-  end
+    #Get user for "Message with..."
+    @user = User.find_by id: params[:id]
+    @users = current_user.sent_messages.distinct.map(&:receiver)
+    @users += current_user.received_messages.distinct.map(&:sender)
+    @users = @users.uniq
 
-  # GET /messages/new
-  def new
+    #Get messages from users sorted by date
+    m1 = current_user.sent_messages.where(receiver_id: params[:id])
+    m2 = current_user.received_messages.where(sender_id: params[:id])
+    @messages_user = m1 + m2
+    @messages_order = @messages_user.sort_by &:created_at
+
+    #Create new message
     @message =  current_user.messages.build
   end
 
@@ -27,6 +35,7 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
+    
     @message = Message.new(body: params[:message][:body], sender_id: current_user.id, receiver_id: params[:message][:receiver_id])
     
     #@message = current_user.messages.build(message_params)
@@ -35,7 +44,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
+        format.html { redirect_to messages_user_path(current_user), notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }
