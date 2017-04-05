@@ -1,81 +1,142 @@
 <%#= stylesheet_link_tag    'signin', media: 'all' %>
 
-<div class="container" >
-  <h1 class="page-header">Editar usuario</h1>
-  <div class="row">        
-    <%= form_for @user do |f| %>
-      <% if user.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-          <ul>
-          <% user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-      <!-- left column -->
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="text-center">
-            <%= image_tag @user.avatar.url, class: "avatar img-circle img-thumbnail", style: "max-width: 60%;"%>
-            <h6>Upload a different photo...</h6>
-            <%= f.file_field :avatar, class: "text-center center-block well well-sm"%>
-          </div>
-        </div>
-      <!-- edit form column -->
-      <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
-      <h3>Personal info</h3>
-      <div class="form-horizontal" role="form">
-        <div class="form-group">
-            <%= f.label :name, class: "col-lg-3 control-label" %>
-          <div class="col-lg-8">
-            <%= f.text_field :name, class: "form-control", placeholder: "name"%>
-          </div>
-        </div>
-        <div class="form-group">
-            <%= f.label :surname, class: "col-lg-3 control-label" %>
-          <div class="col-lg-8">
-            <%= f.text_field :surname, class: "form-control", placeholder: "surname"%>
-          </div>
-        </div>
-        <div class="form-group">
-            <%= f.label :telephone, class: "col-lg-3 control-label" %>
-          <div class="col-lg-8">
-            <%= f.text_field :telephone, class: "form-control", placeholder: "telephone"%>
-          </div>
-        </div>
-        <div class="form-group">
-            <%= f.label :street, class: "col-lg-3 control-label" %>
-          <div class="col-lg-8">
-            <%= f.text_field :street, class: "form-control", placeholder: "street"%>
-          </div>
-        </div>
-        <div class="form-group">
-            <%= f.label :city, class: "col-lg-3 control-label" %>
-          <div class="col-lg-8">
-            <%= f.text_field :city, class: "form-control", placeholder: "city"%>
-          </div>
-        </div>
-        <div class="form-group">
-            <%= f.label :postal_code, class: "col-lg-3 control-label" %>
-          <div class="col-lg-8">
-            <%= f.text_field :postal_code, class: "form-control", placeholder: "postal code"%>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-md-3 control-label"></label>
-          <div class="col-md-8">
-            <%= f.submit 'Submit', class: "btn btn-primary"%>
-            <%= f.submit 'Cancel', :name => 'cancel', class: "btn btn-default"%>
-              <span></span>
-          </div>
-        </div>
-      </div>
-  
-  
-  
 
-<% end %>
-</div>
-</div>
+
+
+<br>
+    <div class="container">
+        <div class="row">
+            <!-- Columna de la izquierda -->
+            <%= form_for @user do |f| %>
+                  <% if user.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+                      <ul>
+                      <% user.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+          <div class="col-md-3">
+            <div class="col-md-12" align="center">
+              <%= image_tag @user.avatar.url, class: "img-responsive img-portfolio img-hover"%>
+              <h6>Upload a different photo...</h6>
+            </div>
+            <div class="col-md-12">
+              <%= f.file_field :avatar, class: "text-center center-block well well-sm"%>
+            </div>
+          </div>
+            <!-- Fin de Columna de la izquierda -->
+
+            <!-- Parte central -->
+            <div class="col-md-6">
+                <div class="col-md-12" style="border-width: 1px 1px 0px 1px; border-style: solid; border-color: lightgrey;">
+                    <h3 style="text-align: center">Editar perfil</h3>
+                </div>
+                  
+              
+                <!-- Inicio del div central parte de información básica -->
+                <div class="col-md-12" style="border-width: 1px 1px 0px 1px; border-style: solid; border-color: lightgrey; background: #f1f3f6;">
+                  <div class="col-md-8 col-md-offset-2">
+                      <div class="form-horizontal" role="form">
+                      <br>
+                        <div class="form-group">
+                            <%= f.label :name, class: "col-lg-3 control-label" %>
+                          <div class="col-lg-8">
+                            <%= f.text_field :name, class: "form-control", placeholder: "name"%>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <%= f.label :surname, class: "col-lg-3 control-label" %>
+                          <div class="col-lg-8">
+                            <%= f.text_field :surname, class: "form-control", placeholder: "surname"%>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <%= f.label :telephone, class: "col-lg-3 control-label" %>
+                          <div class="col-lg-8">
+                            <%= f.text_field :telephone, class: "form-control", placeholder: "telephone"%>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <%= f.label :street, class: "col-lg-3 control-label" %>
+                          <div class="col-lg-8">
+                            <%= f.text_field :street, class: "form-control", placeholder: "street"%>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <%= f.label :city, class: "col-lg-3 control-label" %>
+                          <div class="col-lg-8">
+                            <%= f.text_field :city, class: "form-control", placeholder: "city"%>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <%= f.label :postal_code, class: "col-lg-3 control-label" %>
+                          <div class="col-lg-8">
+                            <%= f.text_field :postal_code, class: "form-control", placeholder: "postal code"%>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label"></label>
+                          <div class="col-md-8">
+                            <%= f.submit 'Submit', class: "btn btn-primary"%>
+                            <%= f.submit 'Cancel', :name => 'cancel', class: "btn btn-default"%>
+                              <span></span>
+                          </div>
+                        </div>
+                      </div>
+                      <% end %>                      
+                    </div>
+                </div>
+                <!-- Fin del div central parte  información básica -->
+
+                <!-- Parte central - enlaces -->
+                <div class="col-md-12" style="border: 1px solid lightgrey; background: #e5eaf2;">
+                    <!-- Parte de redes sociales en el alta de perfil -->
+                    <div class="col-md-8 col-md-offset-2">
+                    
+                    </div>
+                    <!-- Fin Parte de redes sociales en el alta de perfil -->
+                    
+                    <!-- Botones formulario -->
+                  
+                   
+                </div>
+                <!-- Fin Parte central - enlaces -->
+            </form>
+          
+            </div>  
+            <!-- Fin del div de parte central -->
+            <div class="col-md-3">
+            <div class="col-md-12">
+            <!-- Barra vertical de opciones del perfil de usuairo -->
+              
+              <ul class="list-group list-primary">
+                <%= link_to 'Añadir mascota', new_user_pet_path(@user), class: "list-group-item"%>
+                <% if @user.pets.size>0%>
+                 <%= link_to 'Ver mascotas', user_pets_path(@user), class: "list-group-item"%> 
+                <% end %>
+                <%= link_to 'Ser anfitrion', edit_user_host_path(@user), class: "list-group-item" %> 
+                <% if @user.housing_type %>
+                <%= link_to 'Ver alojamiento', user_host_path(current_user), class: "list-group-item" %> 
+                <% end %>
+                <%= link_to 'Ver mensajes', messages_user_path(current_user), class: "list-group-item"%> 
+                <%= link_to 'Valoraciones', user_valoration_path(@user), class: "list-group-item"%>
+                <%= link_to 'Editar', edit_user_path(@user), class: "list-group-item" %> 
+                <%= link_to 'Atrás', user_session_path, class: "list-group-item" %>
+              </ul>
+          </div>
+                <!-- Fin Barra vertical de opciones del perfil de usuario -->
+          </div>
+        </div>
+        
+       
+
+        
+
+    </div>
+    <!-- /.container -->
+

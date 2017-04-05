@@ -1,14 +1,21 @@
-<div class="container" >
-  <h1 class="page-header"><%= @user.username %></h1>
+<!-- <div class="container" >
+  <h2 class="page-header"><%= @user.username %></h2>
   <div class="row">
   <!-- left column -->
-        <div class="col-md-4 col-sm-6 col-xs-12">
+       <!--  <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="text-center">
             <%= image_tag @user.avatar.url, class: "avatar img-circle img-thumbnail", style: "max-width: 60%;"%>
           </div>
-        </div>
+          <div class="row chats-row">
+            <div class="col-md-12 ">
+              <div class="text-center">
+                <%= render 'messages/index' %>
+              </div>
+            </div>
+          </div>
+        <!-- </div> --> 
   <!-- info column -->
-      <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+      <!-- <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
         <h3>Personal info</h3>
       <div class="col-lg-8">
         <p>
@@ -47,8 +54,8 @@
         </p>
       </div>
   </div>
-</div>
-        <%= link_to 'Añadir mascota', new_user_pet_path(@user)%> |
+</div> -->
+       <!--  <%= link_to 'Añadir mascota', new_user_pet_path(@user)%> |
 
         <% if @user.pets.size>0%>
           <%= link_to 'Ver mascotas', user_pets_path(@user)%> |
@@ -60,11 +67,184 @@
           <%= link_to 'Ver alojamiento', user_host_path(current_user) %> |
         <% end %>
           <%= link_to 'Ver mensajes', messages_user_path(current_user)%> |
+          <%= link_to 'Valoraciones', user_valoration_path(@user)%>|
         
 
         <%= link_to 'Editar', edit_user_path(@user) %> |
         <%= link_to 'Atrás', user_session_path %>
 
-
+ -->
           
+
+
+
+
+    
+    <!-- Contenido de la página -->
+    <br>
+    <div class="container">
+        <div class="row">
+            <!-- Columna de la izquierda -->
+          <div class="col-md-3">
+            <div class="col-md-12" align="center">
+              <%= image_tag @user.avatar.url, class: "img-responsive img-portfolio img-hover" %>
+            </div>
+            <div class="col-md-12">
+              <p class="text-center"><strong><%= @user.username %></strong></p>
+              <p class="text-center"><em>Ver mensajes</em></p>
+            </div>
+
+
+            <div class="col-md-12">
+            <!-- Barra vertical de opciones de mensajes perfil de usuairo -->
+              
+              <ul class="list-group list-primary">
+                <%= render 'messages/index',class: "list-group-item"  %>
+              </ul>
+            </div>
+                <!-- Fin Barra vertical de opciones de mensajes de usuario -->
+          </div>
+            <!-- Fin de Columna de la izquierda -->
+
+            <!-- Parte central -->
+            <div class="col-md-6">
+                <div class="col-md-12" style="border-width: 1px 1px 0px 1px; border-style: solid; border-color: lightgrey;">
+                    <h3 style="text-align: center">Mi perfil</h3>
+                </div>
+               
+              
+                <!-- Inicio del div central parte de información básica -->
+                <div class="col-md-12" style="border-width: 1px 1px 0px 1px; border-style: solid; border-color: lightgrey; background: #f1f3f6;">
+                  <div class="col-md-8 col-md-offset-2">
+                      
+                          <div class="personal-info">
+                              <div class="">
+                                <br >
+                                  <label>Nombre: </label>
+                                  <span>
+                                    <%= @user.name %>
+                                  </span>
+                                  <br >
+                                  <label>Apellidos: </label>
+                                  <span>
+                                    <%= @user.surname %>
+                                  </span>
+                                  <br >
+                                  <label>Teléfono: </label>
+                                  <span>
+                                  <%= @user.telephone %>
+                                  </span>
+                                  <br >
+                                  <label>Email: </label>
+                                  <span>
+                                  <%= @user.email  %>
+                                  </span>
+                                  <br >
+                                  <label>Calle: </label>
+                                  <span>
+                                  <%= @user.street%>
+                                  </span>
+                                  <br >
+                                  <label>Ciudad: </label>
+                                  <span>
+                                  <%= @user.city %>
+                                  </span>
+                                  <br >
+                                  <label>Codigo Postal: </label>
+                                  <span>
+                                  <%= @user.postal_code  %>
+                                  </span>
+                                  <br >
+
+                                  <p class="help-block"></p>
+                              </div>
+                          </div>  
+                  </div>
+                  <div class="col-md-6 container allFormButtons">
+                      <div class="col-md-5 col-md-offset-3">
+                            <div class="form-group">               
+                            <%= link_to 'Editar', edit_user_path(@user), class: "btn btn-primary pull-rigth" %>
+                           
+                            </div>
+                        </div>
+                        
+                  </div>
+                   
+                </div>
+               
+                <!-- Fin del div central parte  información básica -->
+
+                <!-- Parte central - enlaces -->
+                <div class="col-md-12" style="border: 1px solid lightgrey; background: #e5eaf2;">
+                    <!-- Parte de redes sociales en el alta de perfil -->
+                    <div class="col-md-8 col-md-offset-2">
+                    <div class="control-group form-group">
+                            <div class="controls">
+                              <br >
+                                <label>Enlaces:</label>
+                                <input type="text" class="form-control" id="txtMyWeb" placeholder="Introduzca su web personal o profesional">
+                                <br>
+                                <div class="input-group">
+                                  <span class="input-group-addon">https://plus.google.com</span><input type="text" class="form-control" id="txtPlus" placeholder="Introduzca su usuario de Google+">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                  <span class="input-group-addon">http://twitter.com</span><input type="text" class="form-control" id="txtTwitter" placeholder="Introduzca su usuario de Twitter">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                  <span class="input-group-addon">https://www.facebook.com</span><input type="text" class="form-control" id="txtFacebook" placeholder="Introduzca su usuario de Facebook">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                  <span class="input-group-addon">https://www.linkedin.com</span><input type="text" class="form-control" id="txtLinkedin" placeholder="Introduzca su usuario de Linkedin">
+                                </div>
+                                <br >
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fin Parte de redes sociales en el alta de perfil -->
+                    
+                    <!-- Botones formulario -->
+                  
+
+                   
+                </div>
+                <!-- Fin Parte central - enlaces -->
+            </form>
+          
+            </div>  
+            <!-- Fin del div de parte central -->
+            <div class="col-md-3">
+            <div class="col-md-12">
+            <!-- Barra vertical de opciones del perfil de usuairo -->
+              
+              <ul class="list-group list-primary">
+                <%= link_to 'Añadir mascota', new_user_pet_path(@user), class: "list-group-item"%>
+                <% if @user.pets.size>0%>
+                 <%= link_to 'Ver mascotas', user_pets_path(@user), class: "list-group-item"%> 
+                <% end %>
+                <%= link_to 'Ser anfitrion', edit_user_host_path(@user), class: "list-group-item" %> 
+                <% if @user.housing_type %>
+                <%= link_to 'Ver alojamiento', user_host_path(current_user), class: "list-group-item" %> 
+                <% end %>
+                <%= link_to 'Ver mensajes', messages_user_path(current_user), class: "list-group-item"%> 
+                <%= link_to 'Valoraciones', user_valoration_path(@user), class: "list-group-item"%>
+                <%= link_to 'Editar', edit_user_path(@user), class: "list-group-item" %> 
+                <%= link_to 'Atrás', user_session_path, class: "list-group-item" %>
+              </ul>
+          </div>
+                <!-- Fin Barra vertical de opciones del perfil de usuario -->
+          </div>
+        </div>
+        
+       
+
+        
+
+    </div>
+    <!-- /.container -->
+
+
+
     

@@ -3,7 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
+.imghome {  
+  background-image:url('/perrocaseta.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  
+  
+  width: 100%;
+  height: 1000px;
+}
 
 .selectpets {
 	width: 90%;

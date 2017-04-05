@@ -27,16 +27,16 @@
     <div class="row">
       <div class="col-md-3">
         <div class="row chats-row">
-          <div class="col-md-12">
+            <div class="col-md-12">
               <% @users.each do |user| %>
-              <div class="list-group-item">
-                <%= link_to user.username, message_user_path(user.id)%>
+                <div class="list-group-item">
+                  <%= link_to user.username, message_user_path(user.id)%>
                 </div>
 
                <% end %>       
+            </div>
         </div>
       </div>
-    </div>
         <div class="col-md-9 current-chat">
             <div class="row chat-toolbar-row">
             

@@ -1,10 +1,11 @@
-
+<%#= stylesheet_link_tag    'messages', media: 'all' %>
+<div class="container">
 
 <p id="notice"><%= notice %></p>
 
 <h1>Messages with <%= @user.username %>  </h1>
 
-<table>
+<!-- <table>
   <thead>
     <tr>
     <th>Body</th>
@@ -30,7 +31,8 @@
 
 <br>
 
-<%= render 'form', message: @message %>
+<%#= render 'form', message: @message %>
+ -->
 <div class="container-fluid">
     <div class="row">
       <div class="col-md-3">
@@ -50,24 +52,27 @@
             
             <div class="row current-chat-area">
                 <div class="col-md-12">
-                  <% @messages_order.each do |message| %>
                       <ul class="media-list">
+                          <% @messages_order.each do |message| %>
                         <li class="media">
+                          
                             <div class="media-body">
                                 <div class="media">
-                                    <a class="pull-left" href="#">
-                                        <%= image_tag message.receiver.avatar.url(:thumb), class: "avatar img-circle img-thumbnail" %>
-
+                                  
+                                    <a class="pull-left" href="">
+                                        <%= image_tag message.sender.avatar.url(:thumb), class: "media-object img-circle", style: "max-width: 50px;" %>
+                                    </a>
                                     <div class="media-body">
                                       <%= message.body %>
-                                      <%= link_to 'Show', message %>
-                                      <%= link_to 'Edit', edit_message_path(message) %>
+                                      <%#= link_to 'Show', message %>
+                                      <%#= link_to 'Edit', edit_message_path(message) %>
                                       <%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %>
-                                      <% end %>
-                                        <br>
-                                       <small class="text-muted">Alex Deo | 23rd June at 5:00pm</small>
+                                       <br>
+                                       <small class="text-muted">Enviado: <%= message.created_at %> |
+                                       </small>
                                         <hr>
                                     </div>
+                                    <% end %>
                                 </div>
                             </div>
                         </li>
@@ -76,14 +81,34 @@
             </div>
             <div class="row current-chat-footer">
             <div class="panel-footer">
-                <div class="input-group">
-                  <input type="text" class="form-control">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Send</button>
-                  </span>
+                
+                  <%= form_for(@message) do |f| %>
+                    <%=f.hidden_field :receiver_id, value: params[:id]%>
+                      <% if @message.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>  
+                        <ul>
+                          <% @message.errors.full_messages.each do |message| %>
+                          <li><%= @message %></li>
+                    <% end %>
+                       </ul>
+              
+                <% end %>
+                  <div class="input-group"> 
+                   <%= f.text_field :body , class: "form-control"%>
+                  
+                  <div class="input-group-btn">
+                    <%= f.submit 'Submit', class: "btn btn-default"%><
+                  </div>
+                  <% end %>
+                  </div>
+                  <%= link_to 'Valorar usuario', new_user_valoration_path(@user.id) %>
+                  
+                   
                 </div>
                 </div>
             </div>
     </div>
   </div>
+</div>
 </div>

@@ -31,6 +31,10 @@ class MessagesController < ApplicationController
   # GET /messages/1/edit
   def edit
   end
+  def new
+    @message =  current_user.messages.build
+    
+  end
 
   # POST /messages
   # POST /messages.json
@@ -44,7 +48,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to messages_user_path(current_user), notice: 'Message was successfully created.' }
+        format.html { redirect_to message_user_path(@message.sender_id, @message.receiver_id), notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }
@@ -72,7 +76,7 @@ class MessagesController < ApplicationController
   def destroy
     @message.destroy
     respond_to do |format|
-      format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' }
+      format.html { redirect_to message_user_path(@message.sender_id, @message.receiver_id), notice: 'Message was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

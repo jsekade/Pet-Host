@@ -13,7 +13,10 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    
+    set_user
+    @users = current_user.sent_messages.distinct.map(&:receiver)
+    @users += current_user.received_messages.distinct.map(&:sender)
+    @users = @users.uniq
   end
 
   def showhost
@@ -90,10 +93,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def search_accommodation
-    @search = User.search(params[:city])
-    @accommodations = @search.result
-  end
+  # def search_accommodation
+  #   @search = User.search(params[:city])
+  #   @accommodations = @search.result
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -106,4 +109,5 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :surname, :telephone, :email, :street, :city, :postal_code, :avatar, :housing_type, :housing_description, :welcome_pets, :price, :availability)
     end
 
+    
 end

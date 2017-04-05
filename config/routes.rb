@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   
   resources :users do
   	resources :pets
+    resources :valorations
   end
+
+ 
   get '/users/:id/edithost', to: 'users#edithost', as: :edit_user_host
   patch '/users/:id/edithost', to: 'users#update_host'
   put '/users/:id/edithost', to: 'users#update_host'
@@ -17,6 +20,8 @@ Rails.application.routes.draw do
   get '/users/:id/messages/:id', to: 'messages#show', as: :message_user
   get '/messages/new/:id', to: 'messages#new', as: :new_messager_for_user
   post'/users/:id/messages', to: 'messages#create'
+
+  
   
 
   get '/', to: 'site#home'

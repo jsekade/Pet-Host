@@ -1,0 +1,7 @@
+
+      <% @users.each do |user| %>
+        <div class="list-group-item">
+          <%= link_to user.username, message_user_path(user.id)%>
+        </div>
+
+      <% end %>       

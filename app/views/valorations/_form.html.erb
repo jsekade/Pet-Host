@@ -1,0 +1,23 @@
+<%= form_for[@user, @valoration] do |f| %>
+
+  <% if valoration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(valoration.errors.count, "error") %> prohibited this valoration from being saved:</h2>
+
+      <ul>
+      <% valoration.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :opnion %>
+    <%= f.text_area :opinion %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

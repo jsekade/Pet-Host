@@ -44,7 +44,7 @@ gem "ransack"
 
 gem 'pry'
 
-gem 'geocoder'
+
 
 
 
