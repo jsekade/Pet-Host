@@ -7,15 +7,19 @@ class ValorationsController < ApplicationController
 	def create
 		@valoration = Valoration.new(
 			:opinion => params[:valoration][:opinion],
-			:user_id => params[:user_id],
-			:host_id => params[:host_id]
+			:user_id => current_user.id,
+			:host_id => params[:valoration][:host_id]
 		  )
-		redirect_to user_path(current_user)
+		if @valoration.save
+		    redirect_to user_path(current_user)
+		else
+            render 'new'
+        end
 	end
 
 	def index
 		set_user
-		@valorations = Valoration.all
+		@valorations = @user.valorations
 	end
 
 	def show

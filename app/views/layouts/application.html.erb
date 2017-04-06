@@ -7,18 +7,22 @@
 
     
   </head>
+    
+  <body>
 
-  <body class="imghome">
     <header> 
       <%= render '/layouts/nav' %>
     </header>
-      
+      <div class="imghome">
+      </div>
+
 
 
     <%= yield %>
-
+  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <%= javascript_include_tag 'application' %>
+
   </body>
 </html>

@@ -17,6 +17,9 @@ class UsersController < ApplicationController
     @users = current_user.sent_messages.distinct.map(&:receiver)
     @users += current_user.received_messages.distinct.map(&:sender)
     @users = @users.uniq
+    @valorations = Valoration.where(host_id: @user.id)
+    
+      
   end
 
   def showhost

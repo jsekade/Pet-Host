@@ -1,6 +1,6 @@
 <h1>New Valoration</h1>
 <%= form_for [@user, @valoration] do |f| %>
-  <%= f.hidden_field :host_id, value: params[:id] %>
+  <%= f.hidden_field :host_id, value: @user.id %>
 
 	<div class="field">
 	    <%= f.label :opinion %>
@@ -9,6 +9,7 @@
 
 	<div class="actions">
 	    <%= f.submit %>
+	    
 	</div>
 <% end %>
 

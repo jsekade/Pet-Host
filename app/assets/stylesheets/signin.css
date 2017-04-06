@@ -1,13 +1,25 @@
+/*// Place all the styles related to the site controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
 body {
-  padding-top: 40px;
+  padding-top: 80px;
   padding-bottom: 40px;
   background-color: #eee;
+}
+.paddingtop {
+  padding-top: 50px;
 }
 
 .form-signin {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
+  border-radius: 20px;
+    border-width: 1px 1px 1px 1px; 
+    border-style: solid; 
+    border-color: lightgrey;  
+    background: #f1f3f6;
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
@@ -37,4 +49,11 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.container_radius {
+    border-radius: 20px;
+    border-width: 1px 1px 1px 1px; 
+    border-style: solid; 
+    border-color: lightgrey;  
+    background: #f1f3f6;
 }

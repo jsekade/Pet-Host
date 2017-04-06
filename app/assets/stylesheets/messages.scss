@@ -3,50 +3,39 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.blue { background: blue }
-.grey { background: grey }
-.chats-row { height: 100vh; }
-.chats-row div { 
-    height: 50%;
-    border: 1px solid #ddd;
-    padding: 0px; 
+.container_high {
+    border-radius: 20px 20px 0px 0px;
+    border-width: 1px 1px 0px 1px; 
+    border-style: solid; 
+    border-color: lightgrey;  
+    background: #f1f3f6;
 }
-
-.list-group-item {
-    border: none;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    
+.container_center {
+    border-radius: 0px;
+    border-width: 1px 1px 0px 1px;
+    border-style: solid; 
+    border-color: lightgrey; 
+    background: #f1f3f6;
+}
+.container_low {
+    border: 1px solid lightgrey; 
+    background: #e5eaf2; 
+    border-radius: 0px 0px 20px 20px;
+}
+.container_radius {
+    border-radius: 20px;
+    border-width: 1px 1px 1px 1px; 
+    border-style: solid; 
+    border-color: lightgrey;  
+    background: #f1f3f6;
 }
 .list-group-item:first-child {
-    border-top: none;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+.list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
-
-.current-chat { 
-    height: 100vh; 
-    border: 1px solid #ddd;
-}
-
-.chat-toolbar-row {
-    background-color: #f5f5f5;
-}
-
-.chat-toolbar {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.current-chat-area {
-    padding-top: 10px;
-    overflow: auto;
-    height: 85vh;
-}
-
-.current-chat-footer {
-    position: absolute;
-    bottom: 0;
-    
-}

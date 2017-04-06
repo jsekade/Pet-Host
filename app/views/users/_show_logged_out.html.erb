@@ -1,59 +1,108 @@
-<div class="container" >
-  <h1 class="page-header"><%= @user.username %></h1>
-  <div class="row">
-  <!-- left column -->
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="text-center">
-            <%= image_tag @user.avatar.url, class: "avatar img-circle img-thumbnail", style: "max-width: 60%;"%>
-          </div>
+<%= stylesheet_link_tag    'users', media: 'all' %>
+<br>
+<div class="container paddingtop">
+    <div class="row">
+        <!-- Columna de la izquierda -->
+      <div class="col-md-3">
+        <div class="col-md-12" align="center">
+          <%= image_tag @user.avatar.url, class: "img-responsive img-portfolio img-hover container_radius" %>
         </div>
-  <!-- info column -->
-      <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
-        <h3>Personal info</h3>
-      <div class="col-lg-8">
-        <p>
-            <strong>Nombre:</strong>
-            <%= @user.name %>
-          </p>
+        <div class="col-md-12 ">
+          <p class="text-center"><strong><%= @user.username %></strong></p>
+        </div>
 
-          <p>
-            <strong>Teléfono:</strong>
-            <%= @user.telephone %>
-          </p>
-
-          <p>
-            <strong>Ciudad:</strong>
-            <%= @user.city %>
-          </p>
-
-          <p>
-            <strong>Alojamiento:</strong>
-            <%= @user.housing_type %>
-          </p>
-
-          <p>
-            <strong>Descripción:</strong>
-            <%= @user.housing_description %>
-          </p>
-
-          <p>
-            <strong>Mascotas bienvenidas:</strong>
-            <%= @user.welcome_pets %>
-          </p>
-
-          <p>
-            <strong>Precio:</strong>
-            <%= @user.price %>
-          </p>
-
-          <p>
-            <strong>Disponibilidad:</strong>
-            <%= @user.availability %>
-          </p>
-          
-            <%= link_to 'Enviar mensaje', new_messager_for_user_path(@user)%> | 
-
-
+            <!-- Fin Barra vertical de opciones de mensajes de usuario -->
       </div>
-  </div>
+        <!-- Fin de Columna de la izquierda -->
+
+        <!-- Parte central -->
+        <div class="col-md-6">
+            <div class="col-md-12 container_high">
+                <h3 style="text-align: center">Alojamiento de <%= @user.username %> </h3>
+            </div>
+           
+          
+            <!-- Inicio del div central parte de información básica -->
+            <div class="col-md-12 container_low">
+              <div class="col-md-8 col-md-offset-2">
+                  
+                      <div class="personal-info">
+                          <div class="">
+                            <br >
+                              <label>Ciudad: </label>
+                              <span>
+                              <%= @user.city %>
+                              </span>
+                              <br>
+                              <label>Tipo vivienda: </label>
+                              <span>
+                                <%= @user.housing_type %>
+                              </span>
+                              <br >
+                              <label>Descripción: </label>
+                              <span>
+                                <%= @user.housing_description %>
+                              </span>
+                              <br >
+                              <label>Mascotas aceptadas: </label>
+                              <span>
+                              <%= @user.welcome_pets %>
+                              </span>
+                              <br >
+                              <label>Precio: </label>
+                              <span>
+                              <%= @user.price  %>
+                              </span>
+                              <br >
+                              <label>Disponibilidad: </label>
+                              <span>
+                              <%= @user.availability %>
+                              </span>
+                              <br >
+                              
+                              
+
+                              <p class="help-block"></p>
+                          </div>
+                      </div>  
+              </div>
+              <div class="col-md-6 container allFormButtons">
+                  <div class="col-md-5 col-md-offset-3">
+                        <div class="form-group">              
+                        <%= link_to 'Enviar mensaje', message_user_path(user.id), class: "btn btn-primary pull-rigth" %>
+                        
+                        </div>
+                    </div>
+                    
+              </div>
+               
+            </div>
+           
+            <!-- Fin del div central parte  información básica -->
+
+            <!-- Parte central - lojamiento -->
+            <div class="col-md-12">
+  
+                <div class="col-md-8 col-md-offset-2">
+                  
+                  <div class="personal-info">
+                          <div class="">
+                          
+
+                              <p class="help-block"></p>
+                    </div>
+                </div>  
+              </div>
+              
+                
+                <!-- Botones formulario -->
+               
+            </div>
+            <!-- Fin Parte central - enlaces -->
+        
+      
+        </div>  
+        <!-- Fin del div de parte central -->
+        
+    </div>
 </div>

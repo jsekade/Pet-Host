@@ -1,11 +1,11 @@
-<%#= stylesheet_link_tag    'signin', media: 'all' %>
+<%= stylesheet_link_tag    'users', media: 'all' %>
 
 
 
 
 
 <br>
-    <div class="container">
+    <div class="container paddingtop">
         <div class="row">
             <!-- Columna de la izquierda -->
             <%= form_for @user do |f| %>
@@ -22,59 +22,62 @@
                   <% end %>
           <div class="col-md-3">
             <div class="col-md-12" align="center">
-              <%= image_tag @user.avatar.url, class: "img-responsive img-portfolio img-hover"%>
+              <%= image_tag @user.avatar.url, class: "img-responsive img-portfolio img-hover container_radius"%>
               <h6>Upload a different photo...</h6>
             </div>
             <div class="col-md-12">
-              <%= f.file_field :avatar, class: "text-center center-block well well-sm"%>
+              <ul class="list-group list-primary">
+              <%= f.file_field :avatar, class: "col-md-12 list-group-item text-cente"%>
+              </ul>
             </div>
           </div>
+
             <!-- Fin de Columna de la izquierda -->
 
             <!-- Parte central -->
             <div class="col-md-6">
-                <div class="col-md-12" style="border-width: 1px 1px 0px 1px; border-style: solid; border-color: lightgrey;">
+                <div class="col-md-12 container_high">
                     <h3 style="text-align: center">Editar perfil</h3>
                 </div>
                   
               
                 <!-- Inicio del div central parte de información básica -->
-                <div class="col-md-12" style="border-width: 1px 1px 0px 1px; border-style: solid; border-color: lightgrey; background: #f1f3f6;">
+                <div class="col-md-12 container_low">
                   <div class="col-md-8 col-md-offset-2">
                       <div class="form-horizontal" role="form">
                       <br>
                         <div class="form-group">
-                            <%= f.label :name, class: "col-lg-3 control-label" %>
+                            <%= f.label :name, 'Nombre', class: "col-lg-3 control-label" %>
                           <div class="col-lg-8">
                             <%= f.text_field :name, class: "form-control", placeholder: "name"%>
                           </div>
                         </div>
                         <div class="form-group">
-                            <%= f.label :surname, class: "col-lg-3 control-label" %>
+                            <%= f.label :surname, 'Apellido', class: "col-lg-3 control-label" %>
                           <div class="col-lg-8">
                             <%= f.text_field :surname, class: "form-control", placeholder: "surname"%>
                           </div>
                         </div>
                         <div class="form-group">
-                            <%= f.label :telephone, class: "col-lg-3 control-label" %>
+                            <%= f.label :telephone, 'Teléfono', class: "col-lg-3 control-label" %>
                           <div class="col-lg-8">
                             <%= f.text_field :telephone, class: "form-control", placeholder: "telephone"%>
                           </div>
                         </div>
                         <div class="form-group">
-                            <%= f.label :street, class: "col-lg-3 control-label" %>
+                            <%= f.label :street, 'Calle', class: "col-lg-3 control-label" %>
                           <div class="col-lg-8">
                             <%= f.text_field :street, class: "form-control", placeholder: "street"%>
                           </div>
                         </div>
                         <div class="form-group">
-                            <%= f.label :city, class: "col-lg-3 control-label" %>
+                            <%= f.label :city, 'Ciudad', class: "col-lg-3 control-label" %>
                           <div class="col-lg-8">
                             <%= f.text_field :city, class: "form-control", placeholder: "city"%>
                           </div>
                         </div>
                         <div class="form-group">
-                            <%= f.label :postal_code, class: "col-lg-3 control-label" %>
+                            <%= f.label :postal_code, 'Codigo postal', class: "col-lg-3 control-label" %>
                           <div class="col-lg-8">
                             <%= f.text_field :postal_code, class: "form-control", placeholder: "postal code"%>
                           </div>
@@ -82,8 +85,8 @@
                         <div class="form-group">
                           <label class="col-md-3 control-label"></label>
                           <div class="col-md-8">
-                            <%= f.submit 'Submit', class: "btn btn-primary"%>
-                            <%= f.submit 'Cancel', :name => 'cancel', class: "btn btn-default"%>
+                            <%= f.submit 'Enviar', class: "btn btn-primary"%>
+                            <%= f.submit 'Cancelar', :name => 'cancel', class: "btn btn-default"%>
                               <span></span>
                           </div>
                         </div>
@@ -94,7 +97,7 @@
                 <!-- Fin del div central parte  información básica -->
 
                 <!-- Parte central - enlaces -->
-                <div class="col-md-12" style="border: 1px solid lightgrey; background: #e5eaf2;">
+                <div class="col-md-12" >
                     <!-- Parte de redes sociales en el alta de perfil -->
                     <div class="col-md-8 col-md-offset-2">
                     
