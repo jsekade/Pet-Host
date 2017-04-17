@@ -1,0 +1,209 @@
+/* line 6, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.imghome {
+  background-image: url("/perrocaseta.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  opacity: 0.5;
+  width: 100%;
+  height: 1000px;
+  position: fixed;
+}
+
+/* line 17, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.paddingtop {
+  padding-top: 80px;
+}
+
+/* line 20, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.selectpets {
+  width: 90%;
+  border-radius: 5px;
+}
+
+/* line 25, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.container_center_site {
+  border-width: 1px 1px 0px 1px;
+  border-style: solid;
+  border-color: lightgrey;
+  background: #f1f3f6;
+  border-radius: 20px;
+  height: 450px;
+  padding: 25px;
+}
+
+/* line 34, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.container_site {
+  border-width: 1px 1px 0px 1px;
+  border-style: solid;
+  border-color: lightgrey;
+  background: #f1f3f6;
+  border-radius: 20px;
+  padding: 25px;
+  height: 425px;
+}
+
+/* line 43, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.searchpanel {
+  padding: 25px;
+}
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+/* line 50, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+body {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: #3d3f3f;
+}
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+/* line 62, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+/* line 71, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* line 75, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* line 79, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+/* Carousel base class */
+/* line 88, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.carousel {
+  height: 500px;
+  margin-bottom: 60px;
+}
+
+/* Since positioning the image, we need to help out the caption */
+/* line 93, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+/* line 98, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.carousel .item {
+  height: 500px;
+  background-color: #777;
+}
+
+/* line 102, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
+}
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+/* Center align the text within the three columns below the carousel */
+/* line 115, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.marketing {
+  padding-top: 50px;
+}
+
+/* line 118, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* line 122, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.marketing h2 {
+  font-weight: normal;
+}
+
+/* line 125, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+/* Featurettes
+------------------------- */
+/* line 134, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.featurette-divider {
+  margin: 80px 0;
+  /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+/* line 139, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  /* line 151, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+
+  /* line 154, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  /* line 158, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  /* line 164, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  /* Bump up size of carousel content */
+  /* line 169, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  /* line 175, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+@media (min-width: 992px) {
+  /* line 181, /home/jose/Proyecto-final/pethost/app/assets/stylesheets/site.scss */
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}
