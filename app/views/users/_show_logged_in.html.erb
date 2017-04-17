@@ -159,26 +159,26 @@
         </div>  
         <!-- Fin del div de parte central -->
         <div class="col-md-3">
-        <div class="col-md-12">
-        <!-- Barra vertical de opciones del perfil de usuairo -->
-          
-          <ul class="list-group list-primary">
-            <%= link_to 'Añadir mascota', new_user_pet_path(@user), class: "list-group-item"%>
-            <% if @user.pets.size>0%>
-             <%= link_to 'Ver mascotas', user_pets_path(@user), class: "list-group-item"%> 
-            <% end %>
-            <%= link_to 'Ser anfitrion', edit_user_host_path(@user), class: "list-group-item" %> 
-            <% if @user.housing_type %>
-            <%= link_to 'Ver alojamiento', user_host_path(current_user), class: "list-group-item" %> 
-            <% end %>
-            <%= link_to 'Ver mensajes', messages_user_path(current_user), class: "list-group-item"%> 
-            <%= link_to 'Valoraciones', user_valorations_path(current_user), class: "list-group-item"%>
-            <%= link_to 'Editar', edit_user_path(@user), class: "list-group-item" %> 
-            <%= link_to 'Atrás', user_session_path, class: "list-group-item" %>
-          </ul>
-      </div>
+          <div class="col-md-12">
+          <!-- Barra vertical de opciones del perfil de usuairo -->
+            
+              <ul class="list-group list-primary">
+                <%= link_to 'Añadir mascota', new_user_pet_path(@user), class: "list-group-item"%>
+                <% if @user.pets.size>0%>
+                 <%= link_to 'Ver mascotas', user_pets_path(@user), class: "list-group-item"%> 
+                <% end %>
+                <%= link_to 'Ser anfitrion', edit_user_host_path(@user), class: "list-group-item" %> 
+                <% if @user.housing_type %>
+                <%= link_to 'Ver alojamiento', user_host_path(current_user), class: "list-group-item" %> 
+                <% end %>
+                <%= link_to 'Ver mensajes', messages_user_path(current_user), class: "list-group-item"%> 
+                <%= link_to 'Valoraciones', user_valorations_path(current_user), class: "list-group-item"%>
+                <%= link_to 'Editar', edit_user_path(@user), class: "list-group-item" %> 
+                <%= link_to 'Atrás', user_session_path, class: "list-group-item" %>
+              </ul>
+          </div>
             <!-- Fin Barra vertical de opciones del perfil de usuario -->
-      </div>
+        </div>
     </div>
 </div>
 <!-- /.container -->

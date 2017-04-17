@@ -58,6 +58,16 @@
                               <span>
                               <%= @user.availability %>
                               </span>
+                              <br>
+                              <label>Valoraciones: </label>
+                              <br>
+                              <span>
+                              <% @valorations.each do |valoration| %>
+                                <tr>
+                                  <td>-<%= valoration.opinion %><br></td>
+                                </tr>
+                              <% end %>
+                              </span>
                               <br >
                               
                               
@@ -103,6 +113,9 @@
       
         </div>  
         <!-- Fin del div de parte central -->
+       
+            <!-- Fin Barra vertical de opciones del perfil de usuario -->
+          </div>
         
     </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="container" >
-  <h1 class="page-header">Editar usuario</h1>
+  
   <div class="row">        
     <%= form_for @user do |f| %>
       <% if user.errors.any? %>
@@ -17,13 +17,11 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="text-center">
             <%= image_tag @user.avatar.url, class: "avatar img-circle img-thumbnail", style: "max-width: 60%;"%>
-            <h6>Upload a different photo...</h6>
-            <%= f.file_field :avatar, class: "text-center center-block well well-sm"%>
+            
           </div>
         </div>
       <!-- edit form column -->
       <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
-      <h3>Personal info</h3>
       <div class="form-horizontal" role="form">
         <div class="form-group">
           <%= f.label :housing_type, class: "col-lg-3 control-label"%>
@@ -36,22 +34,7 @@
           <% end %>
           </div>
         </div>
-          <%= f.label :housing_type, class: "col-lg-3 control-label"%>
-          <div class="col-lg-8">
-          <%= f.select(:housing_type, [['piso', 'piso'],
-                                  ['apartamento', 'apartamento'],
-                                  ['chalet adosado', 'chalet adosado'],
-                                  ['chalet independiente', 'chalet independiente']
-                                 ],{ :prompt => "Please select"},
-                                   { :multiple => true, :size => 4 }
-                                 ) %>
           
-          <%= f.select(:housing_type) do %>
-            <% [['piso', 'piso'], ['apartamento', 'apartamento'], ['chalet adosado', 'chalet adosado'], ['chalet independiente', 'chalet independiente']].each do |c| -%>
-              <%= content_tag(:option, c.first, value: c.last) %>
-            <% end %>
-          <% end %>
-          </div>
         </div>
         
         

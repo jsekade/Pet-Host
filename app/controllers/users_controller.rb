@@ -14,10 +14,13 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     set_user
-    @users = current_user.sent_messages.distinct.map(&:receiver)
-    @users += current_user.received_messages.distinct.map(&:sender)
-    @users = @users.uniq
     @valorations = Valoration.where(host_id: @user.id)
+    if current_user == @user
+      @users = current_user.sent_messages.distinct.map(&:receiver)
+      @users += current_user.received_messages.distinct.map(&:sender)
+      @users = @users.uniq
+    end
+    
     
       
   end
