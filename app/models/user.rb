@@ -13,9 +13,22 @@ class User < ApplicationRecord
 
   has_many :valorations
 
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  # has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  # validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" },
+    :default_url => "/images/:style/missing.png",
+    :url  => ":s3_domain_url",
+    :path => "public/avatars/:id/:style_:basename.:extension",
+    :storage => :fog,
+    :fog_credentials => {
+        provider: 'AWS',
+        aws_access_key_id: "AKIAJVV5WA6ANGF7JXAA",
+        aws_secret_access_key: "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"
+    },
+    fog_directory: "pethost-demo-env"
+
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
 
 end

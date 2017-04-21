@@ -46,6 +46,12 @@ gem 'pry'
 
 gem 'rails_12factor', group: :production
 
+gem 'aws-sdk', '~> 1.36.1'
+
+gem 'fog'
+
+gem "figaro"
+
 
 
 
