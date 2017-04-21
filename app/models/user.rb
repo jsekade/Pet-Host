@@ -23,8 +23,8 @@ class User < ApplicationRecord
     :storage => :fog,
     :fog_credentials => {
         provider: 'AWS',
-        aws_access_key_id: "AKIAJVV5WA6ANGF7JXAA",
-        aws_secret_access_key: "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"
+        aws_access_key_id: ENV["AWS_ACCES_KEY_ID"],
+        aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
     },
     fog_directory: "pethost-demo-env"
 
