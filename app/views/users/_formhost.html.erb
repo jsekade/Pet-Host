@@ -120,7 +120,7 @@
                 <%= link_to 'Ver alojamiento', user_host_path(current_user), class: "list-group-item" %> 
                 <% end %>
                 <%#= link_to 'Ver mensajes', messages_user_path(current_user), class: "list-group-item"%> 
-                <%= link_to 'Valoraciones', user_valoration_path(@user), class: "list-group-item"%>
+                <%= link_to 'Valoraciones', user_valorations_path(current_user), class: "list-group-item"%>
                 <%= link_to 'Editar', edit_user_path(@user), class: "list-group-item" %> 
                 <%= link_to 'Atrás', user_session_path, class: "list-group-item" %>
               </ul>

@@ -1,75 +1,118 @@
-<div class="panel panel-default">
-<div class="panel-body">
-<%= form_for [@user, @pet], html: { class: 'form-horizontal' } do |f| %>
-  <% if pet.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+<%= stylesheet_link_tag    'users', media: 'all' %>
 
-      <ul>
-      <% pet.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<br>
+<div class="container paddingtop">
+  <div class="row">
+    <!-- Columna de la izquierda -->
+    <%= form_for [@user, @pet] do |f| %>
+      <% if pet.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+            <ul>
+              <% pet.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <fieldset>
-    <legend>+ Mascota</legend>
-
-  <div class="form-group">
-    <%= f.label :name, class: "col-lg-2 control-label" %>
-    <div class="col-lg-10">
-    <%= f.text_field :name, class: "form-control", placeholder: "nombre"%>
-    </div>
-  </div>  
-
-  <div class="form-group">
-    <%= f.label :type_pet, class: "col-lg-2 control-label"%>
-    <div class="col-lg-10">
-    <%= f.select(:type_pet, html: { class: 'form-control' }) do %>
-     <% [['perro', 'perro'], ['gato', 'gato'], ['pajaro', 'pajaro']].each do |c| -%>
-    <%= content_tag(:option, c.first, value: c.last) %>
-    <% end %>
-    <% end %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :breed, class: "col-lg-2 control-label" %>
-    <div class="col-lg-10">
-    <%= f.text_field :breed, class: "form-control", placeholder: "raza" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :age, class: "col-lg-2 control-label" %>
-    <div class="col-lg-10">
-    <%= f.number_field :age, class: "form-control", placeholder: "edad" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :description_pet, class: "col-lg-2 control-label" %>
-    <div class="col-lg-10">
-    <%= f.text_area :description_pet, class: "form-control", rows: "3" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :care, class: "col-lg-2 control-label" %>
-    <div class="col-lg-10">
-    <%= f.text_area :care, class: "form-control", placeholder: "cuidados" %>
-    </div>
-  </div>
-  <%= f.file_field :avatar %>
-
-  <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <%= f.submit 'Cancel', :name => 'cancel', class: "btn btn-default"%>
-        <%= f.submit 'Submit', class: "btn btn-primary"%>
+    <div class="col-md-3">
+      <div class="col-md-12">
+        <%= image_tag @pet.avatar.url, class: "img-responsive img-portfolio img-hover container_radius"%>
+          <h6>Upload a different photo...</h6>
       </div>
+      <div class="col-md-12">
+        <ul class="list-group list-primary">
+          <%= f.file_field :avatar, class: "col-md-12 list-group-item text-cente"%>
+        </ul>
+      </div>
+    </div> 
+    <!-- Fin de Columna de la izquierda -->
+
+    <!-- Parte central -->
+    <div class="col-md-6">
+      <div class="col-md-12 container_high">
+        <h3 style="text-align: center">Editar mascota</h3>
+      </div>
+      <!-- Inicio del div central parte de información básica -->
+      <div class="col-md-12 container_low">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="form-horizontal" role="form">
+          <br>
+            <div class="form-group">
+              <%= f.label :name, 'Nombre', class: "col-lg-3 control-label" %>
+                <div class="col-lg-8">
+                  <%= f.text_field :name, class: "form-control", placeholder: "Nombre"%>
+                </div>
+            </div>
+            <div class="form-group">
+                <%= f.label :type_pet, class: "col-lg-3 control-label" %>
+                  <div class="col-lg-8">                
+                    <%= f.select(:type_pet) do %>           
+                      <% [['perro', 'perro'], ['gato', 'gato'], ['pajaro', 'pajaro']].each do |c| -%>
+                        <%= content_tag(:option, c.first, value: c.last) %>
+                      <% end %>
+                    <% end %>
+                  </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :breed, class: "col-lg-3 control-label" %>
+                <div class="col-lg-8">
+                  <%= f.text_field :breed, class: "form-control", placeholder: "Raza"%>
+                </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :age, class: "col-lg-3 control-label" %>
+                <div class="col-lg-8">
+                <%= f.number_field :age, class: "form-control", placeholder: "Edad" %>
+                </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :description_pet, class: "col-lg-3 control-label" %>
+                <div class="col-lg-8">
+                <%= f.text_area :description_pet, class: "form-control", placeholder: "Descripción" %>
+                </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :care, class: "col-lg-3 control-label" %>
+                <div class="col-lg-8">
+                  <%= f.text_area :care, class: "form-control", placeholder: "Cuidados" %>
+                </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label"></label>
+                <div class="col-md-8">
+                  <%= f.submit 'Enviar', class: "btn btn-primary"%>
+                  <%= f.submit 'Cancelar', :name => 'cancel', class: "btn btn-default"%>
+                    <span></span>
+                </div>
+            </div>
+          </div>
+          <% end %>                      
+        </div>
+      </div>
+    </div> 
+    <!-- Fin del div de parte central -->
+            <div class="col-md-3">
+            <div class="col-md-12">
+            <!-- Barra vertical de opciones del perfil de usuairo -->
+              
+              <ul class="list-group list-primary">
+                <%= link_to 'Añadir mascota', new_user_pet_path(@user), class: "list-group-item"%>
+                <% if @user.pets.size>0%>
+                 <%= link_to 'Ver mascotas', user_pets_path(@user), class: "list-group-item"%> 
+                <% end %>
+                <%= link_to 'Ser anfitrion', edit_user_host_path(@user), class: "list-group-item" %> 
+                <% if @user.housing_type %>
+                <%= link_to 'Ver alojamiento', user_host_path(current_user), class: "list-group-item" %> 
+                <% end %>
+                <%#= link_to 'Ver mensajes', messages_user_path(current_user), class: "list-group-item"%> 
+                <%= link_to 'Valoraciones', user_valorations_path(current_user), class: "list-group-item"%>
+                <%= link_to 'Editar', edit_user_path(@user), class: "list-group-item" %> 
+                <%= link_to 'Atrás', user_session_path, class: "list-group-item" %>
+              </ul>
+          </div>
+                <!-- Fin Barra vertical de opciones del perfil de usuario -->
+    </div>
   </div>
-  </fieldset>
-<% end %>
 </div>
-</div>
+<!-- /.container -->  
