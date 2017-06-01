@@ -20,8 +20,15 @@
             <h4 class="media-heading"><%= user.username%></h4> 
               <div class="media-row">
                 <strong>Ciudad:</strong>
-                <%= user.city %>
-              </div>        
+                <div class="city">
+                  <%= user.city %>
+                </div>
+              </div>  
+                 
+              <div class="media-row">
+                <div class="street" style="display: none">  <%= user.street %>
+                </div>
+              </div>    
               <div class="media-row">
                 <strong>Alojamiento:</strong>
                 <%= user.housing_type%>
@@ -32,7 +39,31 @@
               </div>   
               <span class="pull-right buttons">
               <%= link_to 'Ver usuario', user, class: "btn btn-sm btn-primary" %>
+              <% if current_user %>
               <%= link_to 'Enviar mensaje', message_user_path(user.id), class: "btn btn-sm btn-primary" %>
+              <% else %>
+              <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal">Enviar mensaje</button>
+              <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">No conectado</h4>
+                              </div>
+                              <div class="modal-body">
+                                <p>Debes iniciar sesión para enviar mensajes.</p>
+                                <p>Si aun no formas parte de nuestra comunidad, es un buen momento para registrate.</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                <%= link_to 'Iniciar sesion', new_user_session_path, class: "btn btn-primary pull-rigth" %>
+                                 <%= link_to 'Registrarse', new_user_registration_path, class: "btn btn-primary pull-rigth" %>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+              <% end %>
           </span>              
           </div>
           
@@ -42,3 +73,9 @@
     
   </div>
 </div>
+
+<!-- <script type="text/javascript">
+  var address = document.querySelector(".street").innerHTML + document.querySelector(".city").innerHTML;
+  console.log(address);
+</script>
+ -->

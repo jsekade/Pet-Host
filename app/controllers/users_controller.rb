@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       @users += current_user.received_messages.distinct.map(&:sender)
       @users = @users.uniq
     end
-    
+
     
     
       
@@ -115,6 +115,7 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :surname, :telephone, :email, :street, :city, :postal_code, :avatar, :housing_type, :housing_description, :welcome_pets, :price, :availability)
     end
+    
 
     
 end

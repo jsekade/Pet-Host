@@ -2,8 +2,12 @@
 
 <div class="imgdog">
 <div class="container paddingtop">
+<div class="text-search">
+<h3>Encuentra alojamiento para tu mascota</h3>
+</div>
   <%= search_form_for @q, url: site_search_path, html: { class: "row" } do |f| %>
      <div class="col-xs-8 col-xs-offset-2">
+     
         <div class="input-group searchpanel">
           <div class="input-group-btn search-panel">
             <%= f.select :welcome_pets_cont,  "<option>Perro</option><option>Gato</option><option>Pajaro</option>".html_safe, {}, {class: "btn btn-primary dropdown-toggle"} %>
@@ -54,11 +58,10 @@
 
       <!-- START THE FEATURETTES -->
 
-     
+</div>
       <!-- /END THE FEATURETTES -->
 
-
-
+      
 
 
 
